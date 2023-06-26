@@ -1,16 +1,15 @@
-function taskFirst() {
-  const firstName = "Olayemi";
-  const lastName = "Obafuwa";
-
-  console.log(`First Name: ${firstName}`);
-  console.log(`Last Name: ${lastName}`);
+export function taskFirst() {
+  const task = 'I prefer const when I can.';
+  return task;
 }
 
-function taskNext() {
-  let age = 25;
-  let profession = "Engineer";
-
-  console.log(`Age: ${age}`);
-  console.log(`Profession: ${profession}`);
+export function getLast() {
+  return ' is okay';
 }
 
+export function taskNext() {
+  let combination = 'But sometimes let';
+  combination += getLast();
+
+  return combination;
+}
