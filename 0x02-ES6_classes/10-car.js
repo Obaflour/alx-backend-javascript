@@ -1,3 +1,5 @@
+const CAR_KEY = Symbol("Car Key");
+
 export default class Car {
   constructor(brand, motor, color) {
     this._brand = brand;
@@ -5,12 +7,12 @@ export default class Car {
     this._color = color;
   }
 
-  static get [Symbol.species]() {
-    return this;
-  }
-
   cloneCar() {
-    const Species = this.constructor[Symbol.species];
-    return new Species(this._brand, this._motor, this._color);
+    const newCar = new Car();
+    Object.getOwnPropertySymbols(this).forEach((key) => {
+      newCar[key] = this[key];
+    });
+    return newCar;
   }
+}
 }
